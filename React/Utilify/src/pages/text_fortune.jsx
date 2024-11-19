@@ -34,7 +34,7 @@ const GetFortune = () => {
             </label>
             <textarea
               id="fortune-query"
-              className="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-md focus:shadow-blue-300/30 text-gray-700 bg-gray-100"
+              className="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-0 focus:shadow-md focus:shadow-black/20 text-gray-700 bg-gray-100"
               placeholder="e.g., Will I get a promotion?"
               rows="5"
             ></textarea>
