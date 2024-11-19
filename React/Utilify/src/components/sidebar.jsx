@@ -44,7 +44,7 @@ const SidebarNav = () => {
               <span className="text-red-500 group-hover:text-red-500 group-focus:text-red-500">Image</span>
             </Link>
             <div className="flex flex-col space-y-0 mt-2 ml-1">
-              <Link to="" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-red-500 hover:text-red-500 focus:border-red-500 focus:text-red-500">Remove background</Link>
+              <Link to="img_bg_removal" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-red-500 hover:text-red-500 focus:border-red-500 focus:text-red-500">Remove background</Link>
               <Link to="" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-red-500 hover:text-red-500 focus:border-red-500 focus:text-red-500">Compress</Link>
               <Link to="" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-red-500 hover:text-red-500 focus:border-red-500 focus:text-red-500">Merge</Link>
               <Link to="" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-red-500 hover:text-red-500 focus:border-red-500 focus:text-red-500">Extract Metadata</Link>
