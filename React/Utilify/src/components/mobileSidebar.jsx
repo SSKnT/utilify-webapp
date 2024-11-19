@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MobileSidebar = () => {
   const [expanded, setExpanded] = useState(null);
@@ -40,9 +41,9 @@ const MobileSidebar = () => {
           </button>
           {expanded === "text" && (
             <div className="mt-2 ml-4 flex flex-col space-y-2">
-              <a href="#" className="text-gray-600 hover:text-blue-500">Summarize</a>
-              <a href="#" className="text-gray-600 hover:text-blue-500">Analyze</a>
-              <a href="#" className="text-gray-600 hover:text-blue-500">Fortune</a>
+              <Link to="/text_sum" className="text-gray-600 hover:text-blue-500">Summarize</Link>
+              <Link to="/text_analyze" className="text-gray-600 hover:text-blue-500">Analyze</Link>
+              <Link to="" className="text-gray-600 hover:text-blue-500">Fortune</Link>
             </div>
           )}
         </div>
@@ -65,10 +66,10 @@ const MobileSidebar = () => {
           </button>
           {expanded === "image" && (
             <div className="mt-2 ml-4 flex flex-col space-y-2">
-              <a href="#" className="text-gray-600 hover:text-red-500">Remove background</a>
-              <a href="#" className="text-gray-600 hover:text-red-500">Compress</a>
-              <a href="#" className="text-gray-600 hover:text-red-500">Merge</a>
-              <a href="#" className="text-gray-600 hover:text-red-500">Extract Metadata</a>
+              <Link to="" className="text-gray-600 hover:text-red-500">Remove background</Link>
+              <Link to="" className="text-gray-600 hover:text-red-500">Compress</Link>
+              <Link to="" className="text-gray-600 hover:text-red-500">Merge</Link>
+              <Link to="" className="text-gray-600 hover:text-red-500">Extract Metadata</Link>
             </div>
           )}
         </div>
@@ -91,7 +92,7 @@ const MobileSidebar = () => {
           </button>
           {expanded === "file" && (
             <div className="mt-2 ml-4 flex flex-col space-y-2">
-              <a href="#" className="text-gray-600 hover:text-yellow-500">Markdown to PDF</a>
+              <Link to="" className="text-gray-600 hover:text-yellow-500">Markdown to PDF</Link>
             </div>
           )}
         </div>
