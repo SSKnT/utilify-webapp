@@ -12,7 +12,7 @@ function App() {
       <div className="flex w-full h-full md:flex-row">
         <Sidebar />
         {/* Content Section */}
-        <div className="md:w-[80%] w-full relative md:left-[20%]">
+        <div className="md:w-[80%] w-full relative md:left-[20%] bg-gray-100">
           <Outlet />
         </div>
       </div>

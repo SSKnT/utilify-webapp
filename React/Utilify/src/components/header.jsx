@@ -1,4 +1,3 @@
-import MobileSidebar from "./mobileSidebar";
 import {
   Sheet,
   SheetContent,
@@ -7,8 +6,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import MobileSidebar from "./mobileSidebar";
 import { Separator } from "@/components/ui/separator";
-
+import { Badge } from "@/components/ui/badge"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -16,9 +17,25 @@ const Header = () => {
     <header className="px-4 py-2 border-b border-gray-200 fixed top-0 left-0 w-full md:h-16 h-14 z-20 bg-white backdrop-blur bg-opacity-70">
       <div className="flex items-center h-full w-full">
         {/* Logo Section */}
-        <div className="text-xl font-semibold">
-          <h3>LOGO</h3>
+        <div className="text-xl font-semibold md:ml-6">
+          <Link to=''>
+            <h3 className='font-bold font-sans  '>LOGO</h3>
+          </Link>
         </div>
+
+        <Badge variant="default" className='ml-2 md:ml-3 font-sans h-[80%] md:h-[60%] text-blue-800 bg-blue-100 hover:bg-blue-200 bg-opacity-70 md:bg-opacity-100 '>
+          v2.9.13
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="ml-1 w-3 h-4 inline-block"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            strokeWidth="3"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>  
+          </Badge>
 
         {/* Navigation (Desktop version) */}
         <div className="hidden md:flex space-x-6 ml-auto">

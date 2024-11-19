@@ -43,7 +43,7 @@ const MobileSidebar = () => {
             <div className="mt-2 ml-4 flex flex-col space-y-2">
               <Link to="/text_sum" className="text-gray-600 hover:text-blue-500">Summarize</Link>
               <Link to="/text_analyze" className="text-gray-600 hover:text-blue-500">Analyze</Link>
-              <Link to="" className="text-gray-600 hover:text-blue-500">Fortune</Link>
+              <Link to="/text_fortune" className="text-gray-600 hover:text-blue-500">Fortune</Link>
             </div>
           )}
         </div>
