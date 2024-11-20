@@ -23,18 +23,18 @@ const Header = () => {
           </Link>
         </div>
 
-        <Badge variant="default" className='ml-2 md:ml-3 font-sans h-[80%] md:h-[60%] text-blue-800 bg-blue-100 hover:bg-blue-200 bg-opacity-70 md:bg-opacity-100 '>
-          v2.9.13
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="ml-1 w-3 h-4 inline-block"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth="3"
-          >
-            <path d="M19 9l-7 7-7-7" />
-          </svg>  
+          <Badge variant="default" className='ml-2 md:ml-3 font-sans h-[80%] md:h-[60%] text-blue-800 bg-blue-100 hover:bg-blue-200 bg-opacity-70 md:bg-opacity-100 '>
+            v2.9.13
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="ml-1 w-3 h-4 inline-block"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth="3"
+            >
+              <path d="M19 9l-7 7-7-7" />
+            </svg>  
           </Badge>
 
         {/* Navigation (Desktop version) */}

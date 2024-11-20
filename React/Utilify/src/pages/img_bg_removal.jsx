@@ -10,7 +10,7 @@ const PageContent_IBR = () => {
 
     return (
         <>
-            <div className="w-[90%] md:w-[80%] mt-4 mx-auto">
+            <div className="w-[90%] md:w-[80%] mx-auto">
                 {/* Alerts */}
                 {alert.message && (
                     <Alert variant={alert.type === "Error" ? "destructive" : "success"}>
@@ -34,17 +34,18 @@ const PageContent_IBR = () => {
             <ImagePageComp
                 title="Remove Image Background"
                 text={text}
-                component_1={<FileUploadComp alert={alert} setAlert={setAlert} />}
+                component_1={<FileUploadComp setAlert={setAlert} />}
             />
             <Footer />
         </>
     );
 };
 
-const validateFile = (file, fileTypes) => file && fileTypes.includes(file.type);
 
-const FileUploadComp = ({ alert, setAlert }) => {
+
+const FileUploadComp = ({ setAlert }) => {
     const [file, setFile] = useState(null);
+    const validateFile = (file, fileTypes) => file && fileTypes.includes(file.type);
 
     const handleFileChange = (e) => {
         const fileTypes = ["image/jpeg", "image/png", "image/gif", "image/svg"];
@@ -63,7 +64,7 @@ const FileUploadComp = ({ alert, setAlert }) => {
 
     return (
         <>
-            <div className="border-gray-400 border-[1px] bg-blue-50 border-opacity-50 rounded-lg py-6">
+            <div className="border-gray-400 border-[1px] border-opacity-50 bg-red-300 bg-opacity-20 rounded-lg py-6">
                 <label htmlFor="file-upload" className="w-full max-w-lg p-2">
                     <input
                         type="file"
@@ -72,7 +73,7 @@ const FileUploadComp = ({ alert, setAlert }) => {
                         onChange={handleFileChange}
                     />
                     <div className="flex flex-col items-center justify-center space-y-4">
-                        <i className="fas fa-cloud-upload-alt text-6xl text-blue-500"></i>
+                        <i className="fas fa-cloud-upload-alt text-6xl text-red-600"></i>
                         <p className="text-lg text-center text-gray-600">
                             Drag and drop your image here or click to upload
                         </p>
@@ -97,3 +98,4 @@ const FileUploadComp = ({ alert, setAlert }) => {
 };
 
 export default PageContent_IBR;
+export { FileUploadComp };

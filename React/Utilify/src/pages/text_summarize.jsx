@@ -23,7 +23,7 @@ const TextSummarize = ({heading, txt}) => {
   };
 
   return (
-    <div className="p-6 h-full w-full mx-auto flex flex-col justify-center mb-14">
+    <div className="p-6 h-full w-full mx-auto flex flex-col justify-center bg-gradient-to-b from-blue-50 to-blue-100 pb-28">
       <h1 className="md:text-5xl text-3xl text-center font-extrabold text-blue-800 mt-4 mb-4 animate-fade-in">{heading}</h1>
       <p className="md:text-lg text-md text-gray-600 mb-8 max-w-xl mx-auto text-center">{txt}</p>
       <div className="w-full max-w-2xl flex flex-col mx-auto">

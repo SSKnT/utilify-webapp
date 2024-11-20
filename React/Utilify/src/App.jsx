@@ -13,7 +13,7 @@ function App() {
         {/* Sidebar Section */}
         <Sidebar />
         {/* Content Section */}
-        <div className="md:w-[80%] w-full relative md:left-[20%] bg-gradient-to-b from-blue-50 to-blue-100">
+        <div className="md:w-[80%] w-full relative md:left-[20%]">
           <Outlet />
         </div>
 

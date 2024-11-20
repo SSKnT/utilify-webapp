@@ -3,10 +3,10 @@
 
 const ImagePageComp = ({ title, text, component_1, component_2, note = '' }) => {
     return (
-      <div className="flex flex-col min-h-screen w-full items-center text-red-900 p-6">
+      <div className="flex flex-col min-h-screen w-full items-center bg-red-50 from-red-500 to-red-30 p-6">
         {/* Header Section */}
         <header className="mb-8 mt-4 md:w-[70%]">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-center animate fade-in-5 mb-4">{title}</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-red-600 text-center animate fade-in-5 mb-4">{title}</h1>
           <p className="mt-2 md:text-lg md:w-[85%] text-md mx-auto text-center text-gray-600 ">{text}</p>
         </header>
   

@@ -67,9 +67,9 @@ const MobileSidebar = () => {
           {expanded === "image" && (
             <div className="mt-2 ml-4 flex flex-col space-y-2">
               <Link to="img_bg_removal" className="text-gray-600 hover:text-red-500">Remove background</Link>
-              <Link to="" className="text-gray-600 hover:text-red-500">Compress</Link>
+              <Link to="img_compress" className="text-gray-600 hover:text-red-500">Compress</Link>
               <Link to="" className="text-gray-600 hover:text-red-500">Merge</Link>
-              <Link to="" className="text-gray-600 hover:text-red-500">Extract Metadata</Link>
+              <Link to="img_metadata" className="text-gray-600 hover:text-red-500">Extract Metadata</Link>
             </div>
           )}
         </div>
