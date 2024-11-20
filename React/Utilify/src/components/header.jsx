@@ -22,7 +22,7 @@ const Header = () => {
             <h3 className='font-bold font-sans  '>LOGO</h3>
           </Link>
         </div>
-        <br />
+        
           <Badge variant="default" className='ml-2 md:ml-3 font-sans h-[80%] md:h-[60%] text-blue-800 bg-blue-100 hover:bg-blue-200 bg-opacity-70 md:bg-opacity-100 '>
             v2.9.13
             <svg
