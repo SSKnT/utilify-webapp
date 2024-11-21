@@ -17,7 +17,6 @@ function App() {
         <div className="md:w-[80%] w-full relative md:left-[20%]">
           <Outlet />
         </div>
-
       </div>
     </div>
   );
