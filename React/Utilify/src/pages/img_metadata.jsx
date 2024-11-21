@@ -32,7 +32,7 @@ const PageContent_IMD = () => {            // IMD stands for Image Metadata
             <PageLayoutComp 
                 title="Extract Image Metadata"
                 text="Extract metadata from your images. Get information about your images."
-                component_1={<FileUploadComp setAlert={setAlert} />}
+                component_1={<FileUploadComp setAlert={setAlert} fileTypes={["image/jpeg", "image/png", "image/gif", "image/svg"]} />}
             />
             <Footer />
         </>

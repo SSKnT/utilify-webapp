@@ -57,7 +57,7 @@ const SidebarNav = () => {
               <span className="text-yellow-500 group-hover:text-yellow-500 group-focus:text-yellow-500">File</span>
             </Link>
             <div className="flex flex-col space-y-0 mt-2 ml-1">
-              <Link to="" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-yellow-500 hover:text-yellow-500 focus:border-yellow-500 focus:text-yellow-500">Markdown to PDF</Link>
+              <Link to="md_to_pdf" className="pl-3 border-l border-gray-300 text-gray-400 hover:border-yellow-500 hover:text-yellow-500 focus:border-yellow-500 focus:text-yellow-500">Markdown to PDF</Link>
             </div>
           </div>
         </div>

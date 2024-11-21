@@ -7,7 +7,8 @@ import PageContent_TF from '@/pages/text_fortune';
 import PageContent_IBR from '@/pages/img_bg_removal';
 import PageContent_IC from '@/pages/img_compress';
 import PageContent_IMD from '@/pages/img_metadata';
-import PageContent_IM from './pages/img_merge';
+import PageContent_IM from '@/pages/img_merge';
+import PageContent_MD_to_PDF from '@/pages/file_md_to_pdf';
 
 function AppRoutes() {
     return(
@@ -23,6 +24,7 @@ function AppRoutes() {
                     <Route path='/img_compress' element={<PageContent_IC />} />
                     <Route path ='/img_merge' element={<PageContent_IM />} />
                     <Route path='/img_metadata' element={<PageContent_IMD />} />
+                    <Route path='/md_to_pdf' element={<PageContent_MD_to_PDF />} />
                 </Route>
             </Routes>
         </Router>

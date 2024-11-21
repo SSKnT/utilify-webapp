@@ -33,22 +33,27 @@ const PageContent_IBR = () => {
       <PageLayoutComp
         title="Remove Image Background"
         text={text}
-        component_1={<FileUploadComp setAlert={setAlert} />}
+        component_1={<FileUploadComp setAlert={setAlert} fileTypes={["image/jpeg", "image/png", "image/gif", "image/svg"]} />}
       />
       <Footer />
     </>
   );
 };
 
-const FileUploadComp = ({ setAlert }) => {
+const FileUploadComp = ({ setAlert, fileTypes=["image/jpeg", "image/png", "image/gif", "image/svg"], fileTypeText, uploadFileType='image' }) => {
   const [file, setFile] = useState(null);
 
-  const validateFile = (file, fileTypes) => file && fileTypes.includes(file.type);
+  const validateFile = (file, fileTypes) => {
+    if (!file) return false;
+    const fileType = file.type || file.name.split('.').pop();
+    const isValid = fileTypes.includes(fileType) || (fileType === 'md' && fileTypes.includes('text/markdown'));
+    console.log(`File type: ${fileType}, Valid: ${isValid}`);
+    return isValid;
+  };
 
   const handleFileChange = (e) => {
-    const fileTypes = ["image/jpeg", "image/png", "image/gif", "image/svg"];
     const selectedFile = e.target.files[0];
-
+    
     if (validateFile(selectedFile, fileTypes)) {
       setFile(selectedFile);
       setAlert({ type: "Success", message: `File selected: ${selectedFile.name}` });
@@ -72,10 +77,10 @@ const FileUploadComp = ({ setAlert }) => {
         <div className="flex flex-col items-center justify-center space-y-4">
           <i className="fas fa-cloud-upload-alt text-6xl text-red-600"></i>
           <p className="text-lg text-center text-gray-600">
-            Drag and drop your image here or click to upload
+            Drag and drop your {uploadFileType} here or click to upload
           </p>
           <p className="text-sm text-center text-gray-500">
-            Supported formats: JPG, PNG, GIF, SVG
+            {fileTypeText || "Supported file types: JPEG, PNG, GIF, SVG"}
           </p>
           {file && (
             <p className="text-sm text-center text-green-500">

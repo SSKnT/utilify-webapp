@@ -33,7 +33,7 @@ const PageContent_IC = () => {            // IC stands for Image Compress
             <PageLayoutComp
                 title="Compress Image"
                 text="Compress your images without losing quality. Reduce the size of your images with ease."
-                component_1={<FileUploadComp setAlert={setAlert} />}
+                component_1={<FileUploadComp setAlert={setAlert} fileTypes={["image/jpeg", "image/png", "image/gif", "image/svg"]} />}
             />
             <Footer />
         </>
