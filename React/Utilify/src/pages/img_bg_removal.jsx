@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ImagePageComp from "@/components/imagePageComp";
+import PageLayoutComp from "@/components/PageLayoutComp";
 import Footer from "@/components/footer";
 import { toast } from "sonner";
 
@@ -30,7 +30,7 @@ const PageContent_IBR = () => {
 
   return (
     <>
-      <ImagePageComp
+      <PageLayoutComp
         title="Remove Image Background"
         text={text}
         component_1={<FileUploadComp setAlert={setAlert} />}

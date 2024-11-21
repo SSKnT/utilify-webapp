@@ -1,7 +1,7 @@
-// a reusable component for utilization in all img relapted pages e.g., img_bg_removal, img_compress, img_merge, img_metadata
+// a reusable layout component for utilization in all most pages e.g., img_bg_removal, img_compress, img_merge, img_metadata, file_md_to_pddf, etc.
 
 
-const ImagePageComp = ({ title, text, component_1, component_2, note = '' }) => {
+const PageLayoutComp = ({ title, text, component_1, component_2, note = '' }) => {
     return (
       <div className="flex flex-col min-h-screen w-full items-center bg-red-50 from-red-500 to-red-30 p-6">
         {/* Header Section */}
@@ -22,4 +22,4 @@ const ImagePageComp = ({ title, text, component_1, component_2, note = '' }) => 
     );
   };
 
-export default ImagePageComp;
+export default PageLayoutComp;

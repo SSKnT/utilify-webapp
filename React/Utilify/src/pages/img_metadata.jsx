@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ImagePageComp from "@/components/imagePageComp";
+import PageLayoutComp from "@/components/PageLayoutComp";
 import { FileUploadComp } from "./img_bg_removal";
 import Footer from "@/components/footer";
 import { toast } from "sonner";
@@ -29,7 +29,7 @@ const PageContent_IMD = () => {            // IMD stands for Image Metadata
 
     return(
         <>
-            <ImagePageComp 
+            <PageLayoutComp 
                 title="Extract Image Metadata"
                 text="Extract metadata from your images. Get information about your images."
                 component_1={<FileUploadComp setAlert={setAlert} />}

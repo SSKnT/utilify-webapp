@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ImagePageComp from "@/components/imagePageComp";
+import PageLayoutComp from "@/components/PageLayoutComp";
 import { FileUploadComp } from "./img_bg_removal";
 import Footer from "@/components/footer";
 import { toast } from "sonner";
@@ -30,7 +30,7 @@ const PageContent_IC = () => {            // IC stands for Image Compress
 
     return(
         <>
-            <ImagePageComp
+            <PageLayoutComp
                 title="Compress Image"
                 text="Compress your images without losing quality. Reduce the size of your images with ease."
                 component_1={<FileUploadComp setAlert={setAlert} />}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ImagePageComp from "@/components/imagePageComp";
+import PageLayoutComp from "@/components/PageLayoutComp";
 import Footer from "@/components/footer";
 import { toast } from "sonner";
 
@@ -29,7 +29,7 @@ const PageContent_IM = () => {
 
     return (
         <>
-            <ImagePageComp
+            <PageLayoutComp
                 title="Merge Images"
                 text={text}
                 component_1={<FileUploadComp setAlert={setAlert} />}
