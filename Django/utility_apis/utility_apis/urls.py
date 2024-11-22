@@ -26,4 +26,4 @@ urlpatterns = [
 
 
 # Run this in PowerShell to allow running the script
-# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process   
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process  

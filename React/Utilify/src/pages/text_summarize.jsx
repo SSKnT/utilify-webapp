@@ -1,33 +1,69 @@
 import { useState } from 'react';
 import Footer from '@/components/footer';
+import postToApi from '@/api/post';
+import { toast } from 'sonner';
 
-const PageContent_TS = () => {            // TS stands for Text Summarize
-  return(
-    <div className='flex flex-col h-full w-full'>
-      <TextSummarize heading='Summarize Text' txt='Enter your text below to get a summary.' />
+const PageContent_TS = () => {
+  const [text, setText] = useState('');
+  const processApiResponse = (apiResponse) => {
+    return apiResponse.summary;
+  };
+
+  // TS stands for Text Summarize
+  return (
+    <div className="flex flex-col h-full w-full">
+      <TextSummarize
+        heading="Summarize Text"
+        txt="Enter your text below to get a summary."
+        processApiResponse={processApiResponse}
+        params={{ text: text }}
+        text = {text}
+        setText = {setText}
+        url = 'http://localhost:8000/text/summarize/'
+      />
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-
-const TextSummarize = ({heading, txt}) => {
-  const [text, setText] = useState('');
+const TextSummarize = ({ heading, txt, url, processApiResponse, params , text, setText}) => {
 
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
 
-  const handleButtonClick = () => {
-    // You can add more logic here to handle the stored text
+  const getApiData = async () => {
+    try {
+      const data = await postToApi(url, params);
+      return data;
+    } catch (error) {
+      toast.error('An error occurred. Please try again later.');
+    }
+  };
+
+  const handleButtonClick = async () => {
+    if (text === '') toast.error('Please enter some text to summarize.');
+    else {
+      const apiResponse = await getApiData();
+      if (apiResponse) {
+        setText(processApiResponse(apiResponse)); // Api returns a json object with key appropriate to the process
+      }
+    }
   };
 
   return (
     <div className="p-6 h-full w-full mx-auto flex flex-col justify-center bg-gradient-to-b from-blue-50 to-blue-100 pb-28">
-      <h1 className="md:text-5xl text-3xl text-center font-extrabold text-blue-800 mt-4 mb-4 animate-fade-in">{heading}</h1>
-      <p className="md:text-lg text-md text-gray-600 mb-8 max-w-xl mx-auto text-center">{txt}</p>
+      <h1 className="md:text-5xl text-3xl text-center font-extrabold text-blue-800 mt-4 mb-4 animate-fade-in">
+        {heading}
+      </h1>
+      <p className="md:text-lg text-md text-gray-600 mb-8 max-w-xl mx-auto text-center">
+        {txt}
+      </p>
       <div className="w-full max-w-2xl flex flex-col mx-auto">
-        <label htmlFor="message" className="block text-sm font-medium text-gray-800 font-sans mb-2">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-800 font-sans mb-2"
+        >
           Text
         </label>
         <textarea
