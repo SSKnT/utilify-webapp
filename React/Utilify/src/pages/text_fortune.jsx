@@ -49,7 +49,7 @@ const GetFortune = () => {
         Welcome to Your Fortune
       </h1>
       <p className="md:text-lg text-md text-gray-600 mb-8 max-w-xl text-center">
-        Your personalized fortune awaits! Enter your query below and let the
+        Your personalized fortune awaits! Enter your name below and let the
         stars guide you.
       </p>
 

@@ -55,32 +55,35 @@ def remove_background(request):
 
 @api_view(['POST'])
 def overlay_logo(request):
-    background_image = request.FILES.get('background')
-    logo_image = request.FILES.get('logo')
-    position = (int(request.data.get('x', 0)), int(request.data.get('y', 0)))
-    opacity = int(request.data.get('opacity', 128))
 
-    if not background_image or not logo_image:
-        return Response({'error': 'Both background and logo images are required'}, status=400)
+    try:
+        background_image = request.FILES.get('background')
+        logo_image = request.FILES.get('logo')
+        position = (int(request.data.get('x', 0)), int(request.data.get('y', 0)))
+        opacity = int(request.data.get('opacity', 128))
 
-    background = Image.open(background_image).convert("RGBA")
-    logo = Image.open(logo_image).convert("RGBA")
+        if not background_image or not logo_image:
+            return Response({'error': 'Both background and logo images are required'}, status=400)
 
-    logo = logo.resize((100, 100))  
+        background = Image.open(background_image).convert("RGBA")
+        logo = Image.open(logo_image).convert("RGBA")
 
-    alpha = logo.split()[3]
-    alpha = alpha.point(lambda p: opacity)
-    logo.putalpha(alpha)
+        logo = logo.resize((100, 100))  
 
-    background.paste(logo, position, logo)
-
-    final_img = BytesIO()
-    background.save(final_img, format='PNG')
+        alpha = logo.split()[3]
+        alpha = alpha.point(lambda p: opacity)
+        logo.putalpha(alpha)
+        background.paste(logo, position, logo)
     
-    response = HttpResponse(final_img.getvalue(), content_type='image/png')
-    response['Content-Disposition'] = 'attachment; filename="logo_overlay_image.png"'
-    return response
+        final_img = BytesIO()
+        background.save(final_img, format='PNG')
+        
+        response = HttpResponse(final_img.getvalue(), content_type='image/png')
+        response['Content-Disposition'] = 'attachment; filename="logo_overlay_image.png"'
+        return response
 
+    except Exception as e:
+        return Response({'error': f'Failed to overlay logo: {str(e)}'}, status=500)
 
 @api_view(['POST'])
 def extract_metadata(request):
