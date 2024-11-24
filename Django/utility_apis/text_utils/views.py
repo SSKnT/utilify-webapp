@@ -71,7 +71,6 @@ FORTUNES = [
     "You will soon lose something important to you.",
     "You will soon be struck by lightning.",
     "You will soon be eaten by a bear.",
-    "You will soon be struck by a meteorite.",
 ]
 
 SPECIAL_FORTUNES = [
@@ -79,7 +78,6 @@ SPECIAL_FORTUNES = [
     "Good news: someone will ask for your number this month! Bad news: it's probably customer service.",
     "Your social life will thrive… online, because that's about as far as you want to go these days.",
     "You're destined to be wildly successful… at hitting 'snooze' three times tomorrow morning.",
-    # more negative and demeaning fortunes:
     "You will buy a single bed after marriage.",
 ]
 
