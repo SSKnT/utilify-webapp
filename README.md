@@ -45,7 +45,7 @@ cd Utilify-webapp
 #### Inside the `Django` folder:
 - Install dependencies:
   ```bash
-  cd Django
+  cd utility-apis
   pip install -r requirements.txt
   python manage.py migrate
   python manage.py runserver
@@ -58,7 +58,7 @@ cd Utilify-webapp
 #### Inside the `React` folder:
 - Install dependencies:
   ```bash
-  cd React
+  cd Utilify
   npm install
   npm start
   ```
