@@ -31,9 +31,9 @@ const HeroSection = () => {
 // Features Section
 const FeaturesSection = () => {
     const features = [
-        { title: "Feature One", description: "Description of feature one.", icon: "⚡" },
-        { title: "Feature Two", description: "Description of feature two.", icon: "💡" },
-        { title: "Feature Three", description: "Description of feature three.", icon: "🚀" },
+        { title: "Text", description: "Utility for processing and handling text-based content.", icon: "📝" },
+        { title: "Image", description: "Utility for working with images, such as compression and resizing.", icon: "🖼️" },
+        { title: "File", description: "Utility for handling file uploads and downloads.", icon: "📂" }          
     ];
 
     return (
@@ -102,6 +102,7 @@ const ContactSection = () => {
                         <input
                             type="text"
                             id="name"
+                            autoComplete='name'
                             className="w-full border border-gray-600 bg-gray-700 text-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                             placeholder="Your Name"
                         />
@@ -116,6 +117,7 @@ const ContactSection = () => {
                         <input
                             type="email"
                             id="email"
+                            autoComplete='email'
                             className="w-full border border-gray-600 bg-gray-700 text-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                             placeholder="Your Email"
                         />

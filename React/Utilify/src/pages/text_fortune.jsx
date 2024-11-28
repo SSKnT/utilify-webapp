@@ -40,8 +40,10 @@ const GetFortune = () => {
     try {
       setShowFortune(true);
       const fortune = await getFortune();
+      setTimeout(() => {
       setQuery(fortune);
       setLoading(false);
+      }, 1200);
     } catch (error) {
       toast.error('An error occurred. Please try again later.');
       setLoading(false);
@@ -61,8 +63,10 @@ const GetFortune = () => {
 
       {/* Input Section */}
       <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6">
-        {loading ? (
-          <Skeleton className="w-full h-10" />
+        {loading ? (<>
+          <Skeleton className='w-[20%] h-6 text-left bg-blue-200 mb-2' />
+          <Skeleton className="w-full h-24 mb-2 bg-blue-200" />
+          </>
         ) : (
           <div className={` ${showFortune ? 'block' : 'hidden'} `}>
             <label
