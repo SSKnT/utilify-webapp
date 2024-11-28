@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { toast } from 'sonner';
 import Footer from '@/components/footer';
 import postToApi from '@/api/post';
-import { toast } from 'sonner';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const PageContent_TF = () => {
   // TF stands for Text Fortune
@@ -19,6 +20,7 @@ const GetFortune = () => {
   const [name, setName] = useState('');
   const [query, setQuery] = useState('');
   const [showFortune, setShowFortune] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getFortune = async () => {
     const responce = await postToApi('http://localhost:8000/text/fortune/', {
@@ -29,16 +31,20 @@ const GetFortune = () => {
   };
 
   const handleButtonClick = async () => {
+    setLoading(true);
     if (name === '' || age === 0) {
       toast.error('Please enter your name and age.');
+      setLoading(false);
       return;
     }
     try {
       setShowFortune(true);
       const fortune = await getFortune();
       setQuery(fortune);
+      setLoading(false);
     } catch (error) {
       toast.error('An error occurred. Please try again later.');
+      setLoading(false);
     }
   };
 
@@ -55,22 +61,26 @@ const GetFortune = () => {
 
       {/* Input Section */}
       <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6">
-        <div className={` ${showFortune ? 'block' : 'hidden'} `}>
-          <label
-            htmlFor="fortune-query"
-            className="block animate-in text-sm font-semibold text-gray-800 mb-2"
-          >
-            Your Fortune
-          </label>
-          <textarea
-            readOnly
-            id="fortune-query"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg p-4 text-base text-white bg-gradient-to-tl from-red-400 to-purple-500 text-center shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 placeholder-gray-400"
-            rows="3"
-          ></textarea>
-        </div>
+        {loading ? (
+          <Skeleton className="w-full h-10" />
+        ) : (
+          <div className={` ${showFortune ? 'block' : 'hidden'} `}>
+            <label
+              htmlFor="fortune-query"
+              className="block animate-in text-sm font-semibold text-gray-800 mb-2"
+            >
+              Your Fortune
+            </label>
+            <textarea
+              readOnly
+              id="fortune-query"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-4 text-base text-white bg-gradient-to-tl from-red-400 to-purple-500 text-center shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300 placeholder-gray-400"
+              rows="3"
+            ></textarea>
+          </div>
+        )}
         <div className="flex flex-row w-full space-x-3">
           <div className="w-[80%] md:w-[85%]">
             <label

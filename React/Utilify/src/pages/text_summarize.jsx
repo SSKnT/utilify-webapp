@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import Footer from '@/components/footer';
-import postToApi from '@/api/post';
 import { toast } from 'sonner';
+import { Skeleton } from '@/components/ui/skeleton';
+import postToApi from '@/api/post';
+import Footer from '@/components/footer';
 
 const PageContent_TS = () => {
   const [text, setText] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const processApiResponse = (apiResponse) => {
     return apiResponse.summary;
   };
@@ -13,21 +16,34 @@ const PageContent_TS = () => {
   return (
     <div className="flex flex-col h-full w-full">
       <TextSummarize
+        className={`${loading ? 'hidden' : 'block'}`}
         heading="Summarize Text"
         txt="Enter your text below to get a summary."
         processApiResponse={processApiResponse}
         params={{ text: text }}
-        text = {text}
-        setText = {setText}
-        url = 'http://localhost:8000/text/summarize/'
+        text={text}
+        setText={setText}
+        url="http://localhost:8000/text/summarize/"
+        loading={loading}
+        setLoading={setLoading}
       />
+
       <Footer />
     </div>
   );
 };
 
-const TextSummarize = ({ heading, txt, url, processApiResponse, params , text, setText}) => {
-
+const TextSummarize = ({
+  heading,
+  txt,
+  url,
+  processApiResponse,
+  params,
+  text,
+  setText,
+  loading,
+  setLoading,
+}) => {
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
@@ -42,11 +58,17 @@ const TextSummarize = ({ heading, txt, url, processApiResponse, params , text, s
   };
 
   const handleButtonClick = async () => {
-    if (text === '') toast.error('Please enter some text to summarize.');
-    else {
+    setLoading(true);
+    if (text === '') {
+      toast.error('Please enter some text to summarize.');
+      setLoading(false);
+    } else {
       const apiResponse = await getApiData();
       if (apiResponse) {
-        setText(processApiResponse(apiResponse)); // Api returns a json object with key appropriate to the process
+        setTimeout(() => {
+          setLoading(false);
+          setText(processApiResponse(apiResponse)); // Api returns a json object with key appropriate to the process
+        }, 2000);
       }
     }
   };
@@ -66,14 +88,18 @@ const TextSummarize = ({ heading, txt, url, processApiResponse, params , text, s
         >
           Text
         </label>
-        <textarea
-          id="message"
-          className="w-full ml-auto mr-auto border border-gray-600 bg-gray-200 text-gray-700 bg-opacity-40 rounded-lg p-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-          placeholder="Paste your text here"
-          rows="6"
-          value={text}
-          onChange={handleTextChange}
-        ></textarea>
+        {loading ? (
+          <Skeleton className="w-full h-[10.5rem] mx-auto bg-blue-200" />
+        ) : (
+          <textarea
+            id="message"
+            className="w-full ml-auto mr-auto border border-gray-600 bg-gray-200 text-gray-700 bg-opacity-40 rounded-lg p-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            placeholder="Paste your text here"
+            rows="6"
+            value={text}
+            onChange={handleTextChange}
+          ></textarea>
+        )}
         <button
           onClick={handleButtonClick}
           className="mt-5 w-[50%] md:w-[25%] ml-auto mr-auto bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 duration-300"

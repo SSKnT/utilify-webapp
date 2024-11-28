@@ -4,6 +4,8 @@ import Footer from "@/components/footer";
 
 const PageContent_TA = () => {         // TA stands for Text Analyze
     const [text, setText] = useState('');
+    const [loading, setLoading] = useState(false);
+
     const processApiResponse = (apiResponse) => {
         return `Sentiment: ${(apiResponse.sentiment)}\nPolarity: ${apiResponse.polarity}\nSubjectivity: ${apiResponse.subjectivity}`;
     }
@@ -17,6 +19,8 @@ const PageContent_TA = () => {         // TA stands for Text Analyze
                 params = {{text: text}}
                 text = {text}
                 setText = {setText}
+                loading={loading}
+                setLoading={setLoading}
                 />
 
             <Footer />

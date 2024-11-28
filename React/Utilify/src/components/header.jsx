@@ -19,7 +19,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="text-xl font-semibold md:ml-6">
           <Link to=''>
-            <h3 className='font-bold font-sans'>LOGO</h3>
+            <h3 className='font-bold font-sans'>Utilify</h3>
           </Link>
         </div>
 

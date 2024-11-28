@@ -2,8 +2,10 @@ from django.core.files.base import ContentFile
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from PIL import Image, ExifTags, TiffImagePlugin, UnidentifiedImageError
+from rembg import remove
 from io import BytesIO
 from django.http import HttpResponse
+
 
 @api_view(['POST'])
 def compress_image(request):
@@ -32,17 +34,11 @@ def remove_background(request):
     if not image_file:
         return Response({'error': 'No image provided'}, status=400)
 
-    img = Image.open(image_file).convert('RGBA')
-    data = img.getdata()
-
-    new_data = []
-    for item in data:
-        if item[0] > 200 and item[1] > 200 and item[2] > 200:
-            new_data.append((255, 255, 255, 0))  # Transparent
-        else:
-            new_data.append(item)
-
-    img.putdata(new_data)
+    try: 
+        img = Image.open(image_file).convert('RGBA')
+        img = remove(img)
+    except Exception as e:
+        return Response({'error': f'Failed to remove background: {str(e)}'}, status=500)
 
     # Converting img to API suitable format
     bytes_obj = BytesIO()
