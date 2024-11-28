@@ -52,6 +52,7 @@ def remove_background(request):
 @api_view(['POST'])
 def overlay_logo(request):
 
+
     try:
         background_image = request.FILES.get('background')
         logo_image = request.FILES.get('logo')
