@@ -29,6 +29,7 @@ DEBUG = config('DEBUG', default=False)
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    'utility_apis.onrender.com',
     ]
 
 
@@ -135,4 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
+    'https://utilify-a.vercel.app/',
 ]
