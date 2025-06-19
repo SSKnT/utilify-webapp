@@ -1,3 +1,9 @@
+
+<p align="center">
+  <img src="images/collage.png" alt="App Preview" width="800" />
+</p>
+
+
 # Utilify-webapp
 
 A full-stack web app offering a suite of small tools for text, image, and file utilities. Built with React, Django, and Django REST framework, Utilify provides a seamless and efficient utility management experience.
